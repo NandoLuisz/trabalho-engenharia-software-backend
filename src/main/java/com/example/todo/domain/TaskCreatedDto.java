@@ -2,5 +2,5 @@ package com.example.todo.domain;
 
 import java.time.LocalDateTime;
 
-public record TaskCreatedDto(String title, String description, Priority priority, LocalDateTime createdAt) {
+public record TaskCreatedDto(Long id, String title, String description, String priority, boolean isCompleted, LocalDateTime createdAt) {
 }

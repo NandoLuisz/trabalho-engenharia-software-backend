@@ -6,6 +6,8 @@ import com.example.todo.domain.TaskCreateDto;
 import com.example.todo.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TaskService {
     private final TaskRepository taskRepository;
@@ -21,5 +23,13 @@ public class TaskService {
         newTask.setPriority(Priority.valueOf(taskCreateDto.priority()));
         taskRepository.save(newTask);
         return newTask;
+    }
+
+    public List<Task> findAll(){
+        return taskRepository.findAll();
+    }
+
+    public void deleteTask(Long id){
+        taskRepository.deleteById(id);
     }
 }
